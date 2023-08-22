@@ -63,6 +63,7 @@ conn.commit()
 cursor.execute("SELECT * FROM Livros")
 print(cursor.fetchall())
 
+
 # É importante fechar a conexão após terminar de interagir com o banco de dados.
 # Isso libera os recursos e garante que todas as alterações pendentes sejam confirmadas.
 conn.close()

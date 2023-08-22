@@ -10,10 +10,23 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
 1. **Jogos da plataforma Xbox One**:
    - **Enunciado**: Liste todos os jogos disponíveis para a plataforma Xbox One. (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
-     ```sql
-      
+     ```sql      
+        SELECT * FROM vgsales_pbi
+        WHERE platform="XOne";   
      ```
    - **Resultado**
+"Call of Duty: Black Ops 3"	"XOne"	"2015,0"	"Shooter"	"Activision"	"4,52"	"2,09"	"0,01"	"7,3"
+"Halo 5: Guardians"	"XOne"	"2015,0"	"Shooter"	"Microsoft Game Studios"	"2,64"	"1,2"	"0,03"	"4,26"
+"Fallout 4"	"XOne"	"2015,0"	"Role-Playing"	"Bethesda Softworks"	"2,45"	"1,26"	"0,01"	"4,09"
+"Gears of War: Ultimate Edition"	"XOne"	"2015,0"	"Shooter"	"Microsoft Game Studios"	"2,38"	"0,32"	"0,0"	"3,0"
+"Star Wars Battlefront (2015)"	"XOne"	"2015,0"	"Shooter"	"Electronic Arts"	"1,94"	"1,22"	"0,02"	"3,49"
+"FIFA 16"	"XOne"	"2015,0"	"Sports"	"Electronic Arts"	"0,88"	"2,11"	"0,0"	"3,23"
+"Destiny"	"XOne"	"2014,0"	"Shooter"	"Activision"	"2,13"	"0,92"	"0,0"	"3,28"
+"Halo: The Master Chief Collection"	"XOne"	"2014,0"	"Shooter"	"Microsoft Game Studios"	"1,89"	"0,99"	"0,03"	"3,15"
+"Assassin's Creed: Unity"	"XOne"	"2014,0"	"Action"	"Ubisoft"	"2,26"	"0,89"	"0,0"	"3,46"
+"Grand Theft Auto V"	"XOne"	"2014,0"	"Action"	"Take-Two Interactive"	"2,66"	"2,01"	"0,0"	"5,08"
+"Call of Duty: Advanced Warfare"	"XOne"	"2014,0"	"Shooter"	"Activision"	"3,21"	"1,53"	"0,01"	"5,13"
+
     
 
 
@@ -21,19 +34,30 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos do gênero "Ação" que foram lançados após 2010.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
+      SELECT * FROM vgsales_pbi
+      WHERE GENRE="Action" and year>2010;
       
      ```
    - **Resultado**
-    
-
+   Brothers Conflict: Precious Baby	PSV	2017,0	Action	Idea Factory	0,0	0,0	0,01	0,01
+   Lego Star Wars: The Force Awakens	PS4	2016,0	Action	Warner Bros. Interactive Entertainment	0,14	0,32	0,0	0,54
+   Gundam Breaker 3	PS4	2016,0	Action	Namco Bandai Games	0,0	0,0	0,09	0,09
+   Taiko no Tatsujin: Don Don! Mystery Adventure	3DS	2016,0	Action	Namco Bandai Games	0,0	0,0	0,09	0,09
+    ReCore	XOne	2016,0	Action	Microsoft Game Studios	0,06	0,03	0,0	0,1
 
 3. **Jogos mais recentes**:
    - **Enunciado**: Liste os 5 jogos mais recentes lançados.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
+      SELECT * FROM vgsales_pbi
+      WHERE year>2017;
       
      ```
    - **Resultado**
+   Imagine: Makeup Artist	DS	2020,0	Simulation	Ubisoft	0,27	0,0	0,0	0,29
+   Phantasy Star Online 2 Episode 4: Deluxe Package	PS4	2017,0	Role-Playing	Sega	0,0	0,0	0,03	0,03
+   Brothers Conflict: Precious Baby	PSV	2017,0	Action	Idea Factory	0,0	0,0	0,01	0,01
+   Phantasy Star Online 2 Episode 4: Deluxe Package	PSV	2017,0	Role-Playing	Sega	0,0	0,0	0,01	0,01
     
 
 
@@ -41,19 +65,31 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste os 5 jogos mais antigos.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
+      SELECT * FROM vgsales_pbi
+      WHERE year<1981;    
       
      ```
    - **Resultado**
-    
+   Bridge	2600	1980,0	Misc	Activision	0,25	0,02	0,0	0,27
+   Freeway	2600	1980,0	Action	Activision	0,32	0,02	0,0	0,34
+   Defender	2600	1980,0	Misc	Atari	0,99	0,05	0,0	1,05
+   Kaboom!	2600	1980,0	Misc	Activision	1,07	0,07	0,0	1,15
+   Boxing	2600	1980,0	Fighting	Activision	0,72	0,04	0,0	0,77
+  The Technomancer	XOne	2016,0	Role-Playing	Focus Home Interactive	0,01	0,01	0,0	0,02
 
 
 5. **Jogos de Aventura com mais vendas na América do Norte**:
    - **Enunciado**: Quais são os 3 jogos do gênero "Aventura" com as maiores vendas na América do Norte?  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
+      SELECT * FROM vgsales_pbi
+      WHERE genre="Adventure" and na_sales>"2";
       
      ```
    - **Resultado**
+   Assassin's Creed	X360	2007,0	Adventure	Ubisoft	3,28	1,65	0,07	5,55
+   Super Mario Land 2: 6 Golden Coins	GB	1992,0	Adventure	Nintendo	6,16	2,04	2,69	11,18
+   Zelda II: The Adventure of Link	NES	1987,0	Adventure	Nintendo	2,19	0,5	1,61	4,38
     
 
 
@@ -62,9 +98,16 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos dos gêneros "RPG" ou "Strategy" lançados após 2005.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi
+      WHERE genre='Role-Playing' or genre="Strategy" and year > "2005";
+
      ```
    - **Resultado**
+    Phantasy Star Online 2 Episode 4: Deluxe Package	PS4	2017,0	Role-Playing	Sega	0,0	0,0	0,03	0,03
+    Phantasy Star Online 2 Episode 4: Deluxe Package	PSV	2017,0	Role-Playing	Sega	0,0	0,0	0,01	0,01
+    Persona 5	PS3	2016,0	Role-Playing	Unknown	0,0	0,0	0,1	0,1
+    Caligula	PSV	2016,0	Role-Playing	FuRyu	0,0	0,0	0,05	0,05
+    The Technomancer	XOne	2016,0	Role-Playing	Focus Home Interactive	0,01	0,01	0,0	0,02
     
 
 
